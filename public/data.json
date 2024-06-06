@@ -1,0 +1,99 @@
+[
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1619542402915-dcaf30e4e2a1?q=80&w=2698&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 3,
+      "block_name": "A",
+      "apartment_no": 101,
+      "rent": 1200,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1605283176568-9b41fde3672e?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 5,
+      "block_name": "B",
+      "apartment_no": 205,
+      "rent": 1500,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?q=80&w=2884&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 2,
+      "block_name": "C",
+      "apartment_no": 302,
+      "rent": 1100,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1567684014761-b65e2e59b9eb?q=80&w=2736&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 4,
+      "block_name": "D",
+      "apartment_no": 412,
+      "rent": 1300,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1551361415-69c87624334f?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 1,
+      "block_name": "A",
+      "apartment_no": 106,
+      "rent": 1000,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 6,
+      "block_name": "B",
+      "apartment_no": 603,
+      "rent": 1800,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1638973140785-3b918e290682?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 3,
+      "block_name": "C",
+      "apartment_no": 308,
+      "rent": 1200,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1576647296530-fa0e45d8ff8c?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 2,
+      "block_name": "D",
+      "apartment_no": 207,
+      "rent": 1100,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1525438160292-a4a860951216?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 5,
+      "block_name": "A",
+      "apartment_no": 501,
+      "rent": 1400,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1619994121345-b61cd610c5a6?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 4,
+      "block_name": "B",
+      "apartment_no": 410,
+      "rent": 1600,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://plus.unsplash.com/premium_photo-1678386645963-3f5b0bdb8dcd?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 1,
+      "block_name": "C",
+      "apartment_no": 103,
+      "rent": 1000,
+      "status": "pending"
+    },
+    {
+      "apartment_image": "https://images.unsplash.com/photo-1532613475852-8cf4346c52cc?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "floor_no": 6,
+      "block_name": "D",
+      "apartment_no": 602,
+      "rent": 1700,
+      "status": "pending"
+    }
+  ]
+  
