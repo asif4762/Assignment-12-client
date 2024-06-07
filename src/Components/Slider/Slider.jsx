@@ -4,19 +4,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Styles.css";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosCommon from "../../Hooks/useAxiosCommon";
+import useApartments from "../../Hooks/useApartments";
 
 const Slider = () => {
-  const axiosCommon = useAxiosCommon();
-  const {data} = useQuery({
-    queryKey: ['apartment'],
-    queryFn: async () =>{
-      const res = await axiosCommon.get('/apartments')
-      return res.data;
-    }
-  })
-  console.log(data);
+  const [data] = useApartments();
 
   return (
     <div>

@@ -28,10 +28,10 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li className="mr-4">
-                <NavLink to="/" className='text-white font-bold'>Home</NavLink>
+                <NavLink to="/" className='text-black font-bold'>Home</NavLink>
               </li>
               <li>
-                <NavLink to="/apartment" className='text-white font-bold'>Apartment</NavLink>
+                <NavLink to="/apartment" className='text-black font-bold'>Apartment</NavLink>
               </li>
             </ul>
           </div>
@@ -51,10 +51,10 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li className="mr-4">
-              <NavLink to="/" className='text-white font-bold'>Home</NavLink>
+              <NavLink to="/" className='font-bold'>Home</NavLink>
             </li>
             <li>
-              <NavLink to="/apartment" className='text-white font-bold'>Apartment</NavLink>
+              <NavLink to="/apartment" className='font-bold'>Apartment</NavLink>
             </li>
           </ul>
         </div>
@@ -73,7 +73,7 @@ const Navbar = () => {
               </div>
             </div>
             <div className="menu flexmenu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-              <h1 className="text-center w-full">Name</h1>
+              <h1 className="text-center w-full text-black font-bold">Name</h1>
               <button className="mt-3 btn btn-sm w-full">Dashboard</button>
               <button className="btn btn-sm w-full">Logout</button>
             </div>
