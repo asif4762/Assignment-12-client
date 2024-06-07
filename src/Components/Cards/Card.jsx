@@ -1,12 +1,24 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ item }) => {
+  const navigate = useNavigate();
+  const {user} = useContext(AuthContext);
+  const handleFun = (id) =>{
+    
+    if(user){
+      console.log(id);
+    }
+    else{
+      navigate('/login')
+    }
+  }
   return (
     <div>
-      <Link
-        to={`/apartment/${item._id}`}
-        className="col-span-1 cursor-pointer group"
+      <div
+        className="col-span-1"
       >
         <div className="card w-96 bg-transparent">
           <figure>
@@ -38,8 +50,8 @@ const Card = ({ item }) => {
             
           </div>
         </div>
-      </Link>
-      <button className="btn w-full bg-green-100">Agreement</button>
+      </div>
+      <button onClick={() => handleFun(item._id)} className="btn w-full bg-green-100">Agreement</button>
     </div>
   );
 };

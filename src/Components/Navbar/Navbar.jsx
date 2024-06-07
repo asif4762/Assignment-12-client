@@ -72,13 +72,12 @@ const Navbar = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  alt="Tailwind CSS Navbar component"
-                  src={user.photoURL}
+                  src={user?.photoURL}
                 />
               </div>
             </div>
             <div className="menu flexmenu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-              <h1 className="text-center w-full text-black font-bold">{user.displayName
+              <h1 className="text-center w-full text-black font-bold">{user?.displayName
 }</h1>
               <button className="mt-3 btn btn-sm w-full">Dashboard</button>
               <button onClick={() => logOut()} className="btn btn-sm w-full">Logout</button>
