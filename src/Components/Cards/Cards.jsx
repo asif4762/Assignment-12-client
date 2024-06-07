@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import useApartments from "../../Hooks/useApartments";
 import useAxiosCommon from "../../Hooks/useAxiosCommon";
 import Card from "./Card";
 
@@ -23,20 +22,25 @@ const Cards = () => {
         }
     });
 
+    const {data: perPageItems} = useQuery({
+        queryKey: ['per-page', currentPage, itemsPerPage],
+        queryFn: async () => {
+            const res = await axiosCommon.get(`/apartments?page=${currentPage}&size=${itemsPerPage}`)
+            return res.data;
+        }
+    })
+    console.log(perPageItems);
     const totalPage = Math.ceil(countData.count / itemsPerPage);
     const pages = [...Array(totalPage).keys()];
-
-    const [data] = useApartments();
     console.log(pages.length);
     return (
         <>
             <div className="lg:grid grid-cols-3 gap-6 mx-auto flex overflow-x-auto">
                 {
-                    data?.map(item => <Card key={item._id} item={item}></Card>)
+                    perPageItems?.map(item => <Card key={item._id} item={item}></Card>)
                 }
             </div>
             <div className="hidden lg:flex w-full items-center justify-center gap-6">
-            <p>Current Page : {currentPage}</p>
             <button disabled={currentPage === 0} onClick={() => setCurrentPage(currentPage - 1)} className="btn">Prev</button>
                 {
                     pages?.map(page => (
