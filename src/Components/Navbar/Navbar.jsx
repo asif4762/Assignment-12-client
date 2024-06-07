@@ -1,7 +1,11 @@
 
-import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
+  console.log(user);
     return (
         <div>
       <div className="navbar max-w-7xl bg-black bg-opacity-40 fixed z-10 h-[90px] text-white">
@@ -42,9 +46,9 @@ const Navbar = () => {
                 src="https://api.logo.com/api/v2/images?logo=logo_12043915-fe7e-4d51-bcaf-46696dc86028&u=1717606049&width=500&height=400&fit=contain&margins=100&format=webp&quality=60"
                 alt=""
               />
-              <a className="btn btn-ghost text-xl text-white">
+              <button className="btn btn-ghost text-xl text-white">
                 Rent<span className="text-lime-300">Ease</span>
-              </a>
+              </button>
             </button>
           </NavLink>
         </div>
@@ -59,7 +63,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end opacity-100">
-          <div className="dropdown dropdown-end">
+          {
+            user ? <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
@@ -68,16 +73,20 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src={user.photoURL}
                 />
               </div>
             </div>
             <div className="menu flexmenu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-              <h1 className="text-center w-full text-black font-bold">Name</h1>
+              <h1 className="text-center w-full text-black font-bold">{user.displayName
+}</h1>
               <button className="mt-3 btn btn-sm w-full">Dashboard</button>
-              <button className="btn btn-sm w-full">Logout</button>
+              <button onClick={() => logOut()} className="btn btn-sm w-full">Logout</button>
             </div>
-          </div>
+          </div> : <Link to='/login'>
+            <button className='btn'>Login</button>
+          </Link>
+          }
         </div>
       </div>
     </div>

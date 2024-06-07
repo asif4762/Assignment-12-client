@@ -40,7 +40,7 @@ const Cards = () => {
                     perPageItems?.map(item => <Card key={item._id} item={item}></Card>)
                 }
             </div>
-            <div className="hidden lg:flex w-full items-center justify-center gap-6">
+            <div className="hidden lg:flex w-full items-center justify-center gap-6 mt-10">
             <button disabled={currentPage === 0} onClick={() => setCurrentPage(currentPage - 1)} className="btn">Prev</button>
                 {
                     pages?.map(page => (
