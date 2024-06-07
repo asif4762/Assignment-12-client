@@ -135,7 +135,7 @@ const Login = () => {
                 placeholder="Password"
               />
             </div>
-            <button type="button" onClick={handleResetPassword} className="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forgot Password?</button>
+            <button type="button" onClick={handleResetPassword} className="mt-4 text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500">Forgot Password?</button>
             <div className="mt-6">
               <button type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                 Login
