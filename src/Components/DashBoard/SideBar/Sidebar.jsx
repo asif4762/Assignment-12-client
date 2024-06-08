@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { HiSpeakerphone } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import { FaHome, FaUser } from "react-icons/fa";
+import { FaHome, FaUser, FaUserAlt } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import useAxiosSecure from "../../../Hooks/useAxiosSeruce";
 import { useQuery } from "@tanstack/react-query";
-import { MdOutlinePayment } from "react-icons/md";
-import { AiFillDollarCircle } from "react-icons/ai";
+import { MdOutlinePayment, MdOutlineRequestPage } from "react-icons/md";
+import { AiFillDollarCircle, AiFillSound } from "react-icons/ai";
 import useUserInfo from "../../../Hooks/useUserInfo";
+import { FaHandshakeSimple } from "react-icons/fa6";
 
 const SidebarUser = () => {
   const { user, logOut } = useContext(AuthContext); 
@@ -21,6 +22,7 @@ const SidebarUser = () => {
 
   // const role = userInfo.role
   const role = userInfo?.role || 'user';
+  // const role = 'admin';
 
   const linkClasses ="flex items-center px-4 py-2 transition-colors duration-300 transform rounded-md dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400";
   const activeLinkClasses ="text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-200";
@@ -42,7 +44,8 @@ const SidebarUser = () => {
             <FaHome />
             <span className="mx-4 font-medium">Home</span>
         </NavLink>
-          <NavLink
+          {
+            role === 'user' || role === 'member' && <NavLink
             to="/dashboard/announcments"
             className={({ isActive }) =>
               `${linkClasses} ${isActive ? activeLinkClasses : ""}`
@@ -51,6 +54,7 @@ const SidebarUser = () => {
             <HiSpeakerphone />
             <span className="mx-4 font-medium">Announcements</span>
           </NavLink>
+          }
 
           {
             role === 'member' && <div>
@@ -75,6 +79,47 @@ const SidebarUser = () => {
           </NavLink>
             </div>
           }
+          {
+            role === 'admin' && <div>
+            <NavLink
+            to="/dashboard/payment-history"
+            className={({ isActive }) =>
+              `${linkClasses} ${isActive ? activeLinkClasses : ""}`
+            }
+          >
+            <FaUserAlt />
+            <span className="mx-4 font-medium">Manage Members</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/payment-history"
+            className={({ isActive }) =>
+              `${linkClasses} ${isActive ? activeLinkClasses : ""}`
+            }
+          >
+            <AiFillSound />
+            <span className="mx-4 font-medium">Make Announcement</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/payment-history"
+            className={({ isActive }) =>
+              `${linkClasses} ${isActive ? activeLinkClasses : ""}`
+            }
+          >
+            <FaHandshakeSimple />
+            <span className="mx-4 font-medium">Agreement Request</span>
+          </NavLink>
+          <NavLink
+            to="/dashboard/payment-history"
+            className={({ isActive }) =>
+              `${linkClasses} ${isActive ? activeLinkClasses : ""}`
+            }
+          >
+            <MdOutlineRequestPage />
+            <span className="mx-4 font-medium">Mange Cupon</span>
+          </NavLink>
+            </div>
+          }
+          
           
         </nav>
         <div>
