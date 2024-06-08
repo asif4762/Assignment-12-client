@@ -1,39 +1,35 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios'; // Import Axios for HTTP requests
 import { Modal, Button, Input } from 'antd';
+import useAxiosSecure from '../../../Hooks/useAxiosSeruce';
+import toast from 'react-hot-toast';
 
-const CouponPage = () => {
+const CouponPage = ({refetch}) => {
+    const axiosSecure = useAxiosSecure();
   const [showModal, setShowModal] = useState(false);
+  const [couponTitle, setCouponTitle] = useState('')
   const [couponCode, setCouponCode] = useState('');
   const [discountPercentage, setDiscountPercentage] = useState('');
   const [couponDescription, setCouponDescription] = useState('');
 
-  // Function to fetch coupons from the database
-  const fetchCoupons = async () => {
-    try {
-      const response = await axios.get('/api/coupons'); // Assuming endpoint '/api/coupons' to get coupons
-    } catch (error) {
-      console.error('Error fetching coupons:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchCoupons(); // Fetch coupons when component mounts
-  }, []);
-
-  // Function to handle adding a new coupon
   const handleAddCoupon = async () => {
     try {
       const newCoupon = {
-        couponCode,
-        discountPercentage,
-        couponDescription
+        title : couponTitle,
+        code : couponCode,
+        discount: discountPercentage,
+        description: couponDescription,
+        expiryDate : new Date().toLocaleDateString()
       };
-      await axios.post('/api/coupons', newCoupon); // Assuming endpoint '/api/coupons' to add coupon
-      fetchCoupons(); // Fetch coupons again to update the list
-      setShowModal(false); // Close the modal after adding the coupon
+      const res = await axiosSecure.post('/coupons', newCoupon);
+      console.log(res.data);
+      if(res.data.insertedId){
+        toast.success('Coupons added successfully')
+        setShowModal(false);
+      }
     } catch (error) {
       console.error('Error adding coupon:', error);
+      toast.error('Error adding coupon');
     }
   };
 
@@ -53,6 +49,12 @@ const CouponPage = () => {
           </Button>,
         ]}
       >
+      <Input
+          type="text"
+          placeholder="Coupon Title"
+          value={couponTitle}
+          onChange={e => setCouponTitle(e.target.value)}
+        />
         <Input
           type="text"
           placeholder="Coupon Code"
@@ -67,6 +69,7 @@ const CouponPage = () => {
         />
         <Input
           type="text"
+          name='description'
           placeholder="Coupon Description"
           value={couponDescription}
           onChange={e => setCouponDescription(e.target.value)}

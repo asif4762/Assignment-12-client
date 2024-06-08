@@ -5,19 +5,25 @@ import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
 import AgreementModal from "../Modal/AgreementModal";
 import useAxiosSecure from "../../Hooks/useAxiosSeruce";
+import userUserInfo from '../../Hooks/useUserInfo';
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const userInfo = userUserInfo();
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   const modalHandler = async () => {
-    console.log('Agreement Clicked');
+    console.log(userInfo);
+    if(userInfo?.role === 'admin'){
+      toast.error('Admin Can not request agreement')
+      return;
+    }
     if (!user) {
       navigate('/login');
       return;

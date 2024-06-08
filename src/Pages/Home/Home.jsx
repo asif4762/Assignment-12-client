@@ -22,7 +22,7 @@ const Home = () => {
       {/* typography */}
       <Typography />
       {/* Coupon */}
-      <Coupons />
+      <Coupons  />
       {/* Map */}
       <h1 className="text-center w-1/3 mx-auto font-bold text-3xl border-y-4 text-blue-900 border-green-700 py-10 mb-10">
         Location Of Out Apartment

@@ -29,9 +29,6 @@ const PaymentHistoryTable = () => {
               <th>payment Data</th>
               <th>Apartment Info</th>
               <th>Month</th>
-              <th>
-                Rent<small>/monthly</small>
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -65,9 +62,6 @@ const PaymentHistoryTable = () => {
                   </span>
                 </td>
                 <td>{info?.month}</td>
-                <th>
-                  <h1 className="">${info.rent}</h1>
-                </th>
               </tr>
             ))}
           </tbody>

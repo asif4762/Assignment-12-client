@@ -1,26 +1,18 @@
+import { useQuery } from "@tanstack/react-query";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 import CouponCard from "./CouponCard";
 
 const Coupons = () => {
-    const coupons = [
-        {
-            title: "Summer Off",
-            description: "Get 20% off on your next Booking",
-            code: "SUMMER20",
-            expiryDate: "June 30, 2025"
-        },
-        {
-            title: "Welcome Discount",
-            description: "Flat $10 off for new members",
-            code: "WELCOME10",
-            expiryDate: "July 31, 2025"
-        },
-        {
-            title: "Student Offer",
-            description: "Enjoy free shipping on orders over $50",
-            code: "STUDENT50",
-            expiryDate: "August 31, 2025"
+    const axiosCommon = useAxiosCommon();
+    const {data: coupons} = useQuery({
+        queryKey: ['coupons'],
+        queryFn: async () =>{
+            const res = await axiosCommon.get('/coupons')
+            return res.data;
         }
-    ];
+    })
+
+    console.log(coupons)
 
     return (
         <section className="bg-transparent py-10 mt-10 rounded-lg">

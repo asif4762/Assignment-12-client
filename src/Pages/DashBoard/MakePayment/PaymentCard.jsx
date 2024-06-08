@@ -1,21 +1,37 @@
 import { useState } from 'react';
 import useUserInfo from '../../../Hooks/useUserInfo';
 import toast from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../../Hooks/useAxiosSeruce';
 
-const PaymentCard = ({showModal, month, setMonth}) => {
-    const userInfo = useUserInfo();
+const PaymentCard = ({ showModal, month, setMonth }) => {
+  const userInfo = useUserInfo();
   const [coupon, setCoupon] = useState('');
-  const [rent, setRent] = useState(1000); 
+  const [rent, setRent] = useState(userInfo?.rent);
   const [discountedRent, setDiscountedRent] = useState(userInfo?.rent);
+  const axiosSecure = useAxiosSecure();
+
+  const { data: coupons } = useQuery({
+    queryKey: ['coupons'],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get('/coupons');
+      return data;
+    },
+  });
+
+  console.log(coupons);
+
   const handleApplyCoupon = () => {
-    if (coupon === 'DISCOUNT10') {
-      const discount = rent * 0.10;
+    const matchedCoupon = coupons.find(item => item.code === coupon);
+
+    if (matchedCoupon) {
+      const discount = rent * (parseInt(matchedCoupon.discount) / 100);
       setDiscountedRent(rent - discount);
+      toast.success('Coupon applied successfully!');
     } else {
       toast.error('Invalid coupon code');
     }
   };
-
 
   return (
     <div className="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg">
@@ -67,28 +83,28 @@ const PaymentCard = ({showModal, month, setMonth}) => {
           />
         </div>
         <div>
-  <label className="block text-gray-700">Month</label>
-  <select
-    value={month}
-    required
-    onChange={(e) => setMonth(e.target.value)}
-    className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-  >
-    <option value="">Select Month</option>
-    <option value="January">January</option>
-    <option value="February">February</option>
-    <option value="March">March</option>
-    <option value="April">April</option>
-    <option value="May">May</option>
-    <option value="June">June</option>
-    <option value="July">July</option>
-    <option value="August">August</option>
-    <option value="September">September</option>
-    <option value="October">October</option>
-    <option value="November">November</option>
-    <option value="December">December</option>
-  </select>
-</div>
+          <label className="block text-gray-700">Month</label>
+          <select
+            value={month}
+            required
+            onChange={(e) => setMonth(e.target.value)}
+            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            <option value="">Select Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+        </div>
         <div className="flex items-center">
           <input
             type="text"
