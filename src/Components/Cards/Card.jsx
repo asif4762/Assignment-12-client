@@ -32,6 +32,7 @@ const Card = ({ item }) => {
         floor_no: item.floor_no,
         block_name: item.block_name,
         apartment_no: item.apartment_no,
+        apartment_image: item.apartment_image,
         rent: item.rent,
         agreement_status: 'pending',
       };

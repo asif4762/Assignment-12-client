@@ -9,6 +9,8 @@ import PrivateRoute from "./PrivateRoute";
 import DashBorad from "../Layout/DashBorad";
 import MyProflie from "../Pages/DashBoard/MyProflie/MyProflie";
 import Announcements from "../Components/DashBoard/Announcements/Announcements";
+import MakePayment from "../Pages/DashBoard/MakePayment/MakePayment";
+import PaymentHistroy from "../Pages/DashBoard/PaymentHistory/PaymentHistroy";
 
 export const router = createBrowserRouter([
     {
@@ -49,6 +51,14 @@ export const router = createBrowserRouter([
         {
           path: 'announcments',
           element: <PrivateRoute><Announcements/></PrivateRoute>
+        },
+        {
+          path: 'make-payment',
+          element: <PrivateRoute><MakePayment/></PrivateRoute>
+        },
+        {
+          path: 'payment-history',
+          element: <PrivateRoute><PaymentHistroy/></PrivateRoute>
         }
       ]
     }
