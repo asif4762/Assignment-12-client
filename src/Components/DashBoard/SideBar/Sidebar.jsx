@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { HiSpeakerphone } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
@@ -12,8 +12,7 @@ import useUserInfo from "../../../Hooks/useUserInfo";
 import { FaHandshakeSimple } from "react-icons/fa6";
 
 const SidebarUser = () => {
-  const { user, logOut } = useContext(AuthContext); 
-  const axiosSecure = useAxiosSecure();
+  const { logOut } = useContext(AuthContext); 
 
   const userInfo = useUserInfo();
 
@@ -21,7 +20,7 @@ const SidebarUser = () => {
   
 
   // const role = userInfo.role
-  const role = userInfo?.role || 'user';
+ const role = userInfo?.role || 'user';
   // const role = 'admin';
 
   const linkClasses ="flex items-center px-4 py-2 transition-colors duration-300 transform rounded-md dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400";
@@ -45,7 +44,7 @@ const SidebarUser = () => {
             <span className="mx-4 font-medium">Home</span>
         </NavLink>
           {
-            role === 'user' || role === 'member' && <NavLink
+            (role === 'user' || role === 'member') && <NavLink
             to="/dashboard/announcments"
             className={({ isActive }) =>
               `${linkClasses} ${isActive ? activeLinkClasses : ""}`
