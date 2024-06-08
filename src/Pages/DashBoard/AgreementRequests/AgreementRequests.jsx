@@ -1,6 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../../../Hooks/useAxiosSeruce';
-import { useEffect, useState } from 'react';
 import AgreementRequestTable from './AgreementRequestTable';
 
 const AgreementRequests = () => {

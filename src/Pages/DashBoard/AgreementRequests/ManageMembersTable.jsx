@@ -15,7 +15,11 @@ const ManageMembersTable = () => {
   const { data, refetch } = useQuery({
     queryKey: ["manage-members", userInfo, user],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users`);
+      const res = await axiosSecure.get(`/users`,{
+        headers:{
+          Authorization: `Bearer ${localStorage.getItem('access-token')}`
+        }
+      });
       return res.data;
     },
   });

@@ -16,7 +16,6 @@ import MakeAnouncements from "../Pages/DashBoard/MakeAnouncements/MakeAnouncemen
 import AgreementRequests from "../Pages/DashBoard/AgreementRequests/AgreementRequests";
 import ManageCupons from "../Pages/DashBoard/ManageCupons/ManageCupons";
 import MyProfileAdmin from "../Pages/DashBoard/MyProflie/MyProfileAdmin";
-import Text from "./text";
 import AdminRoute from "./AdminRoute";
 import MemberRoute from "./MemberRoute";
 
