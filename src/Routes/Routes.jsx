@@ -11,6 +11,10 @@ import MyProflie from "../Pages/DashBoard/MyProflie/MyProflie";
 import Announcements from "../Components/DashBoard/Announcements/Announcements";
 import MakePayment from "../Pages/DashBoard/MakePayment/MakePayment";
 import PaymentHistroy from "../Pages/DashBoard/PaymentHistory/PaymentHistroy";
+import ManageMembers from "../Pages/DashBoard/ManageMembers/ManageMembers";
+import MakeAnouncements from "../Pages/DashBoard/MakeAnouncements/MakeAnouncements";
+import AgreementRequests from "../Pages/DashBoard/AgreementRequests/AgreementRequests";
+import ManageCupons from "../Pages/DashBoard/ManageCupons/ManageCupons";
 
 export const router = createBrowserRouter([
     {
@@ -26,10 +30,6 @@ export const router = createBrowserRouter([
             path: '/apartment',
             element: <Appartments/>,
         },
-        // {
-        //   path: '/apartment/:id',
-        //   element: <PrivateRoute><Apartment/></PrivateRoute>
-        // },
         {
           path: '/login',
           element: <Login/>
@@ -59,6 +59,22 @@ export const router = createBrowserRouter([
         {
           path: 'payment-history',
           element: <PrivateRoute><PaymentHistroy/></PrivateRoute>
+        },
+        {
+          path: 'manage-members',
+          element: <PrivateRoute><ManageMembers/></PrivateRoute>
+        },
+        {
+          path: 'make-anouncement',
+          element: <PrivateRoute><MakeAnouncements/></PrivateRoute>
+        },
+        {
+          path: 'Agreement-request',
+          element: <PrivateRoute><AgreementRequests/></PrivateRoute>
+        },
+        {
+          path: 'manage-coupon',
+          element: <PrivateRoute><ManageCupons/></PrivateRoute>
         }
       ]
     }
