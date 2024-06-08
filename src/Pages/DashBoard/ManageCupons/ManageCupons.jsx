@@ -1,4 +1,3 @@
-import CouponPage from "./CouponPage";
 import CouponTable from "./CouponTable";
 
 
@@ -11,7 +10,6 @@ const ManageCupons = () => {
           </h1>
         </div>
         <CouponTable/>
-            <CouponPage/>
         </div>
     );
 };

@@ -1,13 +1,17 @@
+import LoadingSpinner from "../Components/LoadingSpinner/LoadingSpinner";
+import useRole from "../Hooks/useRole";
 import useUserInfo from "../Hooks/useUserInfo";
 import { Navigate } from "react-router-dom";
 
 
 const AdminRoute = ({children}) => {
-    const userInfo = useUserInfo();
+    const [role, isLoading] = useRole()
 
-    console.log(userInfo?.role)
+    if(isLoading) return <LoadingSpinner/>
 
-    if(userInfo?.role === 'admin') return children
+    console.log(role)
+
+    if(role === 'admin') return children
     return <Navigate to='/dashboard'/>
 };
 
