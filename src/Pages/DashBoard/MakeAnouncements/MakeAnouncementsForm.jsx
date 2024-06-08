@@ -11,12 +11,13 @@ const MakeAnouncementsForm = () => {
         const form = e.target;
         const title = form.title.value;
         const description = form.description.value;
-
-        console.log(title, description);
+        const date = new Date().toLocaleDateString();
+        console.log(title, description, date);
 
         const anouncementData = {
             title,
-            description
+            description,
+            date
         }
 
         await axiosSecure.post('/anouncement', anouncementData)
