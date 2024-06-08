@@ -8,7 +8,7 @@ const CouponCard = ({ coupon }) => {
             <div className="bg-blue-100 text-blue-900 py-1 px-3 rounded-full font-semibold">
                 {coupon.code}
             </div>
-            <p className="text-sm text-gray-500 mt-2">Valid until {coupon.discount}</p>
+            <p className="text-sm text-gray-500 mt-2">Discount %{coupon.discount}</p>
         </div>
     );
 };

@@ -15,6 +15,7 @@ import ManageMembers from "../Pages/DashBoard/ManageMembers/ManageMembers";
 import MakeAnouncements from "../Pages/DashBoard/MakeAnouncements/MakeAnouncements";
 import AgreementRequests from "../Pages/DashBoard/AgreementRequests/AgreementRequests";
 import ManageCupons from "../Pages/DashBoard/ManageCupons/ManageCupons";
+import MyProfileAdmin from "../Pages/DashBoard/MyProflie/MyProfileAdmin";
 
 export const router = createBrowserRouter([
     {
@@ -45,12 +46,12 @@ export const router = createBrowserRouter([
       element: <PrivateRoute><DashBorad/></PrivateRoute>,
       children: [
         {
-          path: 'my-profile',
-          element: <PrivateRoute><MyProflie/></PrivateRoute>
-        },
-        {
           path: 'announcments',
           element: <PrivateRoute><Announcements/></PrivateRoute>
+        },
+        {
+          path: 'my-profile',
+          element: <PrivateRoute><MyProflie/></PrivateRoute>
         },
         {
           path: 'make-payment',
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
         {
           path: 'manage-coupon',
           element: <PrivateRoute><ManageCupons/></PrivateRoute>
+        },
+        {
+          path: 'my-profile-admin',
+          element: <PrivateRoute> <MyProfileAdmin/> </PrivateRoute>
         }
       ]
     }

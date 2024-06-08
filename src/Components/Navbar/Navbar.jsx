@@ -2,9 +2,11 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import useUserInfo from '../../Hooks/useUserInfo';
 
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
+  const userInfo = useUserInfo();
   console.log(user);
     return (
         <div>
@@ -79,7 +81,7 @@ const Navbar = () => {
             <div className="menu flexmenu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
               <h1 className="text-center w-full text-black font-bold">{user?.displayName
 }</h1>
-              <Link to='/dashboard/my-profile'><button className="mt-3 btn btn-sm w-full">Dashboard</button></Link>
+              <Link to={userInfo?.role === 'admin' ? '/dashboard/my-profile-admin' : '/dashboard/my-profile'}><button className="mt-3 btn btn-sm w-full">Dashboard</button></Link>
               <button onClick={() => logOut()} className="btn btn-sm w-full">Logout</button>
             </div>
           </div> : <Link to='/login'>

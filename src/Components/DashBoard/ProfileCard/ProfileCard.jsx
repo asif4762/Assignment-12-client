@@ -34,8 +34,9 @@ const ProfileCard = () => {
         <FaRegClock className="text-2xl" />
           <div className="px-2 text-xl">
             <h1 className="">
-              Agreement Request date :{" "}
-              <span className="text-lg">{userInfo?.role == 'user' || !userInfo?.role ? 'none' : formattedDate}</span>
+              {userInfo?.status === 'Accepted' && 'Accepted Date : '}
+              {" "}
+              <span className="text-lg">{ userInfo?.status === 'Accepted' ? userInfo?.date : ''}</span>
             </h1>
           </div>
         </div>
