@@ -62,8 +62,6 @@ const {user} = useContext(AuthContext);
             console.log('payment intent', paymentIntent)
             if(paymentIntent.status === 'succeeded'){
                 console.log('transaction id', paymentIntent._id)
-                handlePaymentSuccess()
-                //send to mogodb
                 console.log(user)
                 const paymentInfo ={
                     name: user?.displayName || 'anonymous',
@@ -87,7 +85,7 @@ const {user} = useContext(AuthContext);
                     console.log(res.data);
                 })
 
-                navigate('/')
+                navigate('/dashboard/payment-history')
                 toast.success('Payment successful')
             }
         }

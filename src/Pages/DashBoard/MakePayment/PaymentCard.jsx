@@ -70,6 +70,7 @@ const PaymentCard = ({showModal, month, setMonth}) => {
   <label className="block text-gray-700">Month</label>
   <select
     value={month}
+    required
     onChange={(e) => setMonth(e.target.value)}
     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
   >

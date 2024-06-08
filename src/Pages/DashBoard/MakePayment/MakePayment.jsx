@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { Modal } from 'antd';
 import CheckOutForm from './CheckOutForm';
 import PaymentCard from './PaymentCard';
+import { useNavigate } from 'react-router-dom';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const MakePayment = () => {
     const [month, setMonth] = useState('');
+    const navigate = useNavigate();
     const [visible, setVisible] = useState(false);
     console.log(month)
     const showModal = () => {
@@ -21,6 +23,7 @@ const MakePayment = () => {
 
     const handlePaymentSuccess = () => {
         setVisible(false); 
+        navigate('/dashboard/payment-history')
     };
 
     return (
