@@ -27,6 +27,8 @@ const ManageMembersTable = () => {
     }
   }, [data]);
 
+  console.log(data);
+
   const handleRemove = async (info) => {
     Swal.fire({
       title: "Are you sure?",

@@ -1,9 +1,14 @@
-import React from 'react';
+import MakeAnouncementsForm from "./MakeAnouncementsForm";
 
 const MakeAnouncements = () => {
     return (
-        <div>
-            
+        <div className='-ml-60'>
+            <div className=" lg:w-1/2 mx-auto text-blue-900 mb-10">
+          <h1 className="text-center font-bold text-3xl border-y-4 border-green-700 py-10">
+            Make Anouncemnets Here
+          </h1>
+        </div>
+        <MakeAnouncementsForm/>
         </div>
     );
 };
