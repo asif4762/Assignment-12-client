@@ -1,11 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import { MdEmail, MdOutlineMapsHomeWork } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
-import useUserInfo from "../../../Hooks/useUserInfo";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSeruce";
-import { FaHouseChimneyUser } from "react-icons/fa6";
 
 const AdminProfileCard = () => {
   const { user } = useContext(AuthContext);
@@ -46,6 +42,7 @@ const AdminProfileCard = () => {
   const totalRooms = count?.count || 0;
   const availableRooms = totalRooms - numberOfUsers - numberOfMembers;
   const percentageAvailableRooms = (availableRooms / totalRooms) * 100;
+  const percentageUnavailableRooms = (numberOfUsers + numberOfMembers) / totalRooms * 100;
 
   return (
     <div className="w-full max-w-lg mt-20 overflow-hidden bg-green-50 rounded-lg shadow-lg dark:bg-gray-800">
@@ -75,6 +72,10 @@ const AdminProfileCard = () => {
             <p>
               Percentage of available rooms:{" "}
               <span className="text-lg">{percentageAvailableRooms.toFixed(2)}%</span>
+            </p>
+            <p>
+              Percentage of Unavailable rooms:{" "}
+              <span className="text-lg">{percentageUnavailableRooms.toFixed(2)}%</span>
             </p>
             <p>
               Number of Users:{" "}
