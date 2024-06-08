@@ -8,10 +8,6 @@ const ProfileCard = () => {
   const { user } = useContext(AuthContext);
   const userInfo = useUserInfo();
 
-  const formattedDate = userInfo?.timestamp
-    ? new Date(userInfo.timestamp).toLocaleString()
-    : "none";
-
   return (
     <div className="w-full max-w-lg mt-20 overflow-hidden bg-green-50 rounded-lg shadow-lg dark:bg-gray-800">
       <img

@@ -123,7 +123,8 @@ const SidebarUser = () => {
         </nav>
         <div>
           <hr className="mb-10" />
-          <NavLink
+          {
+            (userInfo?.role === 'user' || userInfo?.role === 'member') && <NavLink
             to="/dashboard/my-profile"
             className={({ isActive }) =>
               `${linkClasses} ${isActive ? activeLinkClasses : ""}`
@@ -132,6 +133,18 @@ const SidebarUser = () => {
             <FaUser />
             <h1 className="mx-4 font-medium">My Profile</h1>
           </NavLink>
+          }
+          {
+            userInfo?.role === 'admin' && <NavLink
+            to="/dashboard/my-profile-admin"
+            className={({ isActive }) =>
+              `${linkClasses} ${isActive ? activeLinkClasses : ""}`
+            }
+          >
+            <FaUser />
+            <h1 className="mx-4 font-medium">My Profile</h1>
+          </NavLink>
+          }
           <button onClick={() => logOut()} className="Logout btn w-full btn-sm justify-start mt-10"> <CiLogout /> Logout</button>
         </div>
       </div>

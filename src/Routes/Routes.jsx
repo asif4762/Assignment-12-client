@@ -16,6 +16,9 @@ import MakeAnouncements from "../Pages/DashBoard/MakeAnouncements/MakeAnouncemen
 import AgreementRequests from "../Pages/DashBoard/AgreementRequests/AgreementRequests";
 import ManageCupons from "../Pages/DashBoard/ManageCupons/ManageCupons";
 import MyProfileAdmin from "../Pages/DashBoard/MyProflie/MyProfileAdmin";
+import Text from "./text";
+import AdminRoute from "./AdminRoute";
+import MemberRoute from "./MemberRoute";
 
 export const router = createBrowserRouter([
     {
@@ -55,32 +58,32 @@ export const router = createBrowserRouter([
         },
         {
           path: 'make-payment',
-          element: <PrivateRoute><MakePayment/></PrivateRoute>
+          element: <PrivateRoute><MemberRoute><MakePayment/></MemberRoute></PrivateRoute>
         },
         {
           path: 'payment-history',
-          element: <PrivateRoute><PaymentHistroy/></PrivateRoute>
+          element: <PrivateRoute><MemberRoute><PaymentHistroy/></MemberRoute></PrivateRoute>
         },
         {
           path: 'manage-members',
-          element: <PrivateRoute><ManageMembers/></PrivateRoute>
+          element: <PrivateRoute><AdminRoute><ManageMembers/></AdminRoute></PrivateRoute>
         },
         {
           path: 'make-anouncement',
-          element: <PrivateRoute><MakeAnouncements/></PrivateRoute>
+          element: <PrivateRoute><AdminRoute><MakeAnouncements/></AdminRoute></PrivateRoute>
         },
         {
           path: 'agreement-request',
-          element: <PrivateRoute><AgreementRequests/></PrivateRoute>
+          element: <PrivateRoute><AdminRoute><AgreementRequests/></AdminRoute></PrivateRoute>
         },
         {
           path: 'manage-coupon',
-          element: <PrivateRoute><ManageCupons/></PrivateRoute>
+          element: <PrivateRoute><AdminRoute><ManageCupons/></AdminRoute></PrivateRoute>
         },
         {
           path: 'my-profile-admin',
-          element: <PrivateRoute> <MyProfileAdmin/> </PrivateRoute>
-        }
+          element: <PrivateRoute><AdminRoute><MyProfileAdmin/></AdminRoute></PrivateRoute>
+        },
       ]
     }
   ]);
