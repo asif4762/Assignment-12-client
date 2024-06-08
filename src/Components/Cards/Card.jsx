@@ -25,8 +25,9 @@ const Card = ({ item }) => {
     
     try {
       const currentUser = {
-        name: user.displayName,
+        name: user?.displayName,
         email: user.email,
+        photoURL: user.photoURL,
         role: 'user',
         status: 'Requested',
         floor_no: item.floor_no,
@@ -36,7 +37,7 @@ const Card = ({ item }) => {
         rent: item.rent,
         agreement_status: 'pending',
       };
-      const { data } = await axiosSecure.put('/user', currentUser);
+      const { data } = await axiosSecure.put(`/user`, currentUser);
       console.log(data);
 
       if (data.matchedCount > 0) {

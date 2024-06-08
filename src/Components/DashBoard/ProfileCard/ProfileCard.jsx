@@ -35,7 +35,7 @@ const ProfileCard = () => {
           <div className="px-2 text-xl">
             <h1 className="">
               Agreement Request date :{" "}
-              <span className="text-lg">{formattedDate}</span>
+              <span className="text-lg">{userInfo?.role == 'user' || !userInfo.role ? 'none' : formattedDate}</span>
             </h1>
           </div>
         </div>
@@ -44,13 +44,10 @@ const ProfileCard = () => {
           <MdOutlineMapsHomeWork className="text-2xl" />
           <div className="px-2 text-xl">
             <h1 className="">Rented apartment : </h1>
-            <p>Floor : <span className="text-lg">{userInfo?.floor_no
- || 'none'}</span></p>
-            <p>Block name : <span className="text-lg">{userInfo?.block_name
- || 'none'}</span></p>
-            <p>Apertment no : <span className="text-lg">{userInfo?.apartment_no
- || 'none'}</span></p>
-            <p>Rent : <span className="text-lg">${userInfo?.rent || 'none'}</span></p>
+            <p>Floor : <span className="text-lg">{userInfo?.role == 'user' || !userInfo.role ? 'none' : userInfo?.floor_no}</span></p>
+            <p>Block name : <span className="text-lg">{userInfo?.role == 'user' || !userInfo.role ? 'none' : userInfo?.block_name}</span></p>
+            <p>Apertment no : <span className="text-lg">{userInfo?.role == 'user' || !userInfo.role ? 'none' : userInfo?.apartment_no}</span></p>
+            <p>Rent : <span className="text-lg">${userInfo?.role == 'user' || !userInfo.role ? 'none' : userInfo?.rent}</span></p>
           </div>
         </div>
 

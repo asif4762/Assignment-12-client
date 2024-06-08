@@ -1,10 +1,11 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSeruce';
 import useUserInfo from '../../../Hooks/useUserInfo';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const CheckOutForm = ({handlePaymentSuccess, month}) => {
     const [error, setError] = useState();
@@ -14,6 +15,7 @@ const CheckOutForm = ({handlePaymentSuccess, month}) => {
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
 const userInfo = useUserInfo();
+const {user} = useContext(AuthContext);
 
     useEffect( () => {
         axiosSecure.post('/create-payment-intent',{rent : userInfo?.rent})
@@ -62,10 +64,11 @@ const userInfo = useUserInfo();
                 console.log('transaction id', paymentIntent._id)
                 handlePaymentSuccess()
                 //send to mogodb
-
+                console.log(user)
                 const paymentInfo ={
-                    name: userInfo?.displayName || 'anonymous',
+                    name: user?.displayName || 'anonymous',
                     email: userInfo?.email || 'anonymous',
+                    photoURL: user?.photoURL,
                     role: userInfo?.role,
                     status: 'Requested',
                     floor_no: userInfo?.floor_no,

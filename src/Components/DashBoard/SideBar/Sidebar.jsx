@@ -82,7 +82,7 @@ const SidebarUser = () => {
           {
             role === 'admin' && <div>
             <NavLink
-            to="/dashboard/payment-history"
+            to="/dashboard/manage-members"
             className={({ isActive }) =>
               `${linkClasses} ${isActive ? activeLinkClasses : ""}`
             }
@@ -91,7 +91,7 @@ const SidebarUser = () => {
             <span className="mx-4 font-medium">Manage Members</span>
           </NavLink>
           <NavLink
-            to="/dashboard/payment-history"
+            to="/dashboard/make-anouncement"
             className={({ isActive }) =>
               `${linkClasses} ${isActive ? activeLinkClasses : ""}`
             }
@@ -100,7 +100,7 @@ const SidebarUser = () => {
             <span className="mx-4 font-medium">Make Announcement</span>
           </NavLink>
           <NavLink
-            to="/dashboard/payment-history"
+            to="/dashboard/agreement-request"
             className={({ isActive }) =>
               `${linkClasses} ${isActive ? activeLinkClasses : ""}`
             }
@@ -109,13 +109,13 @@ const SidebarUser = () => {
             <span className="mx-4 font-medium">Agreement Request</span>
           </NavLink>
           <NavLink
-            to="/dashboard/payment-history"
+            to="/dashboard/manage-coupon"
             className={({ isActive }) =>
               `${linkClasses} ${isActive ? activeLinkClasses : ""}`
             }
           >
             <MdOutlineRequestPage />
-            <span className="mx-4 font-medium">Mange Cupon</span>
+            <span className="mx-4 font-medium">Manage Cupon</span>
           </NavLink>
             </div>
           }

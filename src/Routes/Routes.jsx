@@ -69,7 +69,7 @@ export const router = createBrowserRouter([
           element: <PrivateRoute><MakeAnouncements/></PrivateRoute>
         },
         {
-          path: 'Agreement-request',
+          path: 'agreement-request',
           element: <PrivateRoute><AgreementRequests/></PrivateRoute>
         },
         {
